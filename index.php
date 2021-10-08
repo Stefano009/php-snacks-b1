@@ -21,12 +21,6 @@
             punti fatti dalla squadra di casa e punti fatti dalla squadra ospite.
             Stampiamo a schermo tutte le partite con questo schema.
             Olimpia Milano - Cantù | 55-60
-            ## Snack 2
-            Passare come parametri GET name, mail e age e verificare
-            (cercando i metodi che non conosciamo nella documentazione) che name
-            sia più lungo di 3 caratteri,
-            che mail contenga un punto e una chiocciola e che age sia un numero.
-            Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato”
             */
             $teams = [
                 [
@@ -95,7 +89,42 @@
                 $tmp = $teams[$i];
                 echo '<h3>' . $tmp["home"]["teamName"] . ' - ' . $tmp["visitors"]["teamName"] .  '  |  ' . $tmp["home"]["teamScore"] . ' - ' . $tmp["visitors"]["teamScore"];
             }
+            /* ## Snack 2
+             Passare come parametri GET name, mail e age e verificare
+             (cercando i metodi che non conosciamo nella documentazione) che name
+             sia più lungo di 3 caratteri,
+             che mail contenga un punto e una chiocciola e che age sia un numero.
+             Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato”
+             */
+
          ?>
-     </section>
+    </section>
+    <section class="snack2">
+        <form action="index.php" method="get">
+            <label for="fname">First name:</label>
+            <input type="text" id="fname" name="fname"><br><br>
+            <label for="mail">email:</label>
+            <input type="text" id="mail" name="mail"><br><br>
+            <label for="number">number:</label>
+            <input type="text" id="number" name="number"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+        <?php 
+            $name = $_GET['fname'];
+            $mail = $_GET['mail'];
+            (int)$number = $_GET['number'];
+            // info correctly received check
+            // echo '<h1>' . $name . ' ' . $mail . ' ' . $number   . '</h1>';
+            if (isset($name) && isset($mail) && isset($number)) {
+                if (strlen($name) > 3 && strpos($mail, '@') && strpos($mail, '.' ) && is_numeric($number))
+                        echo 'accesso riuscito';
+                else{
+                    echo 'accesso fallito';
+                }
+            }
+
+            
+        ?>
+    </section>
 </body>
 </html>
