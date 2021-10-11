@@ -7,7 +7,8 @@
     <title>php-snacks</title>
     <style>
         .snack1,
-        .snack3 {
+        .snack3,
+        .snack5 {
             color: red;
             padding-left: 20px;
         }
@@ -215,5 +216,18 @@
             ?>
 
     </section>
+    <section class="snack5">
+        <?php 
+            // Prendere un paragrafo abbastanza lungo, contenente diverse frasi. Prendere il paragrafo e suddividerlo in tanti paragrafi. Ogni punto un nuovo paragrafo.
+            $lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris at dapibus nibh, sed ultrices dolor. Nam massa metus, tincidunt sit amet hendrerit at, blandit ut ligula. Aliquam iaculis vestibulum elit, id dictum sapien vestibulum quis. Vestibulum auctor dolor id nunc efficitur, et placerat eros sodales. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean aliquet, magna ac eleifend efficitur, leo elit imperdiet magna, vitae rhoncus magna tortor ullamcorper dui. Suspendisse nibh dolor, varius ut elit ac, suscipit imperdiet sem. Cras eleifend velit non mauris dignissim pretium. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi varius dolor vitae blandit iaculis. Quisque at ipsum vel metus consectetur euismod ac vel felis.';
+            $newArray = explode( '.', $lorem);
+            foreach($newArray as $string)
+                echo '<p>' . $string . '.' . '</p>'
+
+
+
+        ?>
+    </section>
+
 </body>
 </html>
