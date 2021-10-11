@@ -202,7 +202,8 @@
                     $tempNumber = rand(1, 100);
                     if (!in_array($tempNumber, $numbers))
                         {
-                            array_push($numbers, $tempNumber);
+                            // array_push($numbers, $tempNumber);
+                            $numbers [] = $tempNumber; // works same way as array_push read the documentation 
                         }
 
                 } while (count($numbers) < 15); // if i count the array length instead of initializing a new var and counting that i use less processors power so it's better
