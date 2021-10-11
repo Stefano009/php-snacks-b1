@@ -87,7 +87,7 @@
             for ($i =  0; $i < count($teams); $i++)
             {
                 $tmp = $teams[$i];
-                echo '<h3>' . $tmp["home"]["teamName"] . ' - ' . $tmp["visitors"]["teamName"] .  '  |  ' . $tmp["home"]["teamScore"] . ' - ' . $tmp["visitors"]["teamScore"];
+                echo '<h3>' . $tmp["home"]["teamName"] . ' - ' . $tmp["visitors"]["teamName"] .  '  |  ' . $tmp["home"]["teamScore"] . ' - ' . $tmp["visitors"]["teamScore"] . '</h3>';
             }
             /* ## Snack 2
              Passare come parametri GET name, mail e age e verificare
@@ -106,13 +106,14 @@
             <label for="mail">email:</label>
             <input type="text" id="mail" name="mail"><br><br>
             <label for="number">number:</label>
-            <input type="text" id="number" name="number"><br><br>
+            <input type="" id="number" name="number"><br><br>
             <input type="submit" value="Submit">
         </form>
         <?php 
             $name = $_GET['fname'];
             $mail = $_GET['mail'];
-            (int)$number = $_GET['number'];
+            $number = $_GET['number'];
+            // $data = $_GET;
             // info correctly received check
             // echo '<h1>' . $name . ' ' . $mail . ' ' . $number   . '</h1>';
             if (isset($name) && isset($mail) && isset($number)) {
@@ -125,6 +126,59 @@
 
             
         ?>
+    </section>
+    <section class="snack3">
+    <!-- Stampare ogni data con i relativi post. -->
+        <?php 
+        $posts = [
+
+        '10/01/2019' => [
+            [
+                'title' => 'Post 1',
+                'author' => 'Michele Papagni',
+                'text' => 'Testo post 1'
+            ],
+            [
+                'title' => 'Post 2',
+                'author' => 'Michele Papagni',
+                'text' => 'Testo post 2'
+            ],
+        ],
+        '10/02/2019' => [
+            [
+                'title' => 'Post 3',
+                'author' => 'Michele Papagni',
+                'text' => 'Testo post 3'
+            ]
+        ],
+        '15/05/2019' => [
+            [
+                'title' => 'Post 4',
+                'author' => 'Michele Papagni',
+                'text' => 'Testo post 4'
+            ],
+            [
+                'title' => 'Post 5',
+                'author' => 'Michele Papagni',
+                'text' => 'Testo post 5'
+            ],
+            [
+                'title' => 'Post 6',
+                'author' => 'Michele Papagni',
+                'text' => 'Testo post 6'
+            ]
+        ],
+        ];
+        ?>
+            <?php
+                foreach ( $posts as $keys => $post){ 
+                    echo '<h1>' . $keys . '</h1>';
+                        foreach ($post as $element )
+                            foreach($element as $keys => $el)
+                                echo '<p>' . $keys . ':' . $el . '<?p>';
+                }
+
+            ?>
     </section>
 </body>
 </html>
