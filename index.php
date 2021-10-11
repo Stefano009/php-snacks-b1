@@ -5,6 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>php-snacks</title>
+    <style>
+        .snack1,
+        .snack3 {
+            color: red;
+            padding-left: 20px;
+        }
+        .snack2,
+        .snack4 {
+            color: green;
+            padding-left: 20px;
+            font-size: 2rem;
+        }
+    </style>
 </head>
 <body>
      <section class="snack1">
@@ -190,15 +203,14 @@
                     if (!in_array($tempNumber, $numbers))
                         {
                             array_push($numbers, $tempNumber);
-                            $i++;
                         }
 
-                } while ($i < 15);
+                } while (count($numbers) < 15); // if i count the array length instead of initializing a new var and counting that i use less processors power so it's better
                 var_dump($numbers)
         ?>
             <?php 
                 foreach ($numbers as $number)
-                    echo ' <h1>' . $number . ' </h1>';
+                    echo ' <p>' . $number . ' </p>' . '<hr>';
             ?>
 
     </section>
