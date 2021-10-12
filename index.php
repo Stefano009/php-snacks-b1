@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>php-snacks</title>
     <style>
         .snack1,
@@ -177,6 +178,7 @@
                 'text' => 'Testo post 5'
             ],
             [
+
                 'title' => 'Post 6',
                 'author' => 'Michele Papagni',
                 'text' => 'Testo post 6'
@@ -222,11 +224,38 @@
             $lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris at dapibus nibh, sed ultrices dolor. Nam massa metus, tincidunt sit amet hendrerit at, blandit ut ligula. Aliquam iaculis vestibulum elit, id dictum sapien vestibulum quis. Vestibulum auctor dolor id nunc efficitur, et placerat eros sodales. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean aliquet, magna ac eleifend efficitur, leo elit imperdiet magna, vitae rhoncus magna tortor ullamcorper dui. Suspendisse nibh dolor, varius ut elit ac, suscipit imperdiet sem. Cras eleifend velit non mauris dignissim pretium. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi varius dolor vitae blandit iaculis. Quisque at ipsum vel metus consectetur euismod ac vel felis.';
             $newArray = explode( '.', $lorem);
             foreach($newArray as $string)
-                echo '<p>' . $string . '.' . '</p>'
+                if (!empty($string))
+                    echo '<p>' . $string . '.' . '</p>'
 
 
 
         ?>
+    </section>
+    <section class="snack6">
+                <?php 
+                    // 'Utilizzare questo array: https://pastebin.com/CkX3680A. Includerlo in un file database.php... Stampiamo poi il nostro array mettendo gli insegnanti in un rettangolo grigio e i PM in un rettangolo verde.'
+                    include __DIR__ . '/database.php';
+                    foreach ($db as $key => $element){
+                        if ($key === 'teachers') {
+                            foreach ($element as $el){
+                                echo '<div class="gray">';
+                                echo $el['name'] . ' ' . $el['lastname'];
+                                echo '</div>';
+                            }
+                        }                    
+                        else {
+                            foreach ($element as $el){
+                                echo '<div class="green">';
+                                echo $el['name'] . ' ' . $el['lastname'];
+                                echo '</div>';
+                            }
+                        }
+                    }
+                    
+                
+                
+                ?>
+
     </section>
 
 </body>
