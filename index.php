@@ -257,6 +257,28 @@
                 ?>
 
     </section>
+    <section class="snack7">
+        <?php 
+            // Creare un array contenente qualche alunno di un’ipotetica classe. Ogni alunno avrà Nome, Cognome e un array contenente i suoi voti scolastici. Stampare Nome, Cognome e la media dei voti di ogni alunno. -->
+            include __DIR__ . '/database.php';
+            function average ($array) {
+                $tmp = 0;
+                foreach ($array as $el){
+                    $tmp += $el;
+                }
+                $average = $tmp / count($array);
+                return sprintf('%.2f', $average);
+            }
+        ?>
+        <div class="students">
+            <h1>
+                <?php 
+                    foreach ($students as $student)                            echo $student['name'] . ' ' . $student['lastname'] . ' ' . average($student['grades']) . '</br>'
+                ?>
+            </h1>
+
+        </div>
+    </section>
 
 </body>
 </html>
