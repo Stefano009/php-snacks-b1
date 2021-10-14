@@ -279,6 +279,19 @@
 
         </div>
     </section>
+    <section class="snack8">
+            <?php 
+            include __DIR__ . '/database.php';
+            ?>
+            <img src="<?php 
+                $rnd = rand(0, 4);
+                if ($ads[$rnd]['is_active'] != false){
+                   echo  $ads[$rnd]['image_path'];
+                }?>" alt="">
+            <h1><?php if ($ads[$rnd]['is_active'] == false) {
+                    echo  'false';
+                }  ?></h1>
+    </section>
 
 </body>
 </html>
