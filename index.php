@@ -297,6 +297,33 @@
                 ?>" alt="">
             </a>
     </section>
+    <section class="snack9">
+        <?php 
+        include __DIR__ . '/database.php';        
+        ?>
+        
+        <?php 
+            var_dump($hotelFiltered);
+            echo $filter;
+            foreach ($hotelFiltered as $data){
+        ?>
+        <h2>nome hotel: <?php echo $data['name']?></h2>
+        <h3>descrizione hotel: <?php echo $data['description']?></h3>
+        <h3>parcheggio: <?php if($data['parking'])
+                                    echo 'si';
+                                else 
+                                    echo 'no'
+        ?></h3>
+        <h3>voto: <?php echo $data['vote']?></h3>
+        <h3>distanza dal centro: <?php echo $data['distance_to_center']?>km</h3>
+        <br>
+        <h4>
+        <br>
+        <br>
+        <?php 
+            }
+        ?>
+    </section>
 
 </body>
 </html>
